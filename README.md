@@ -7,16 +7,16 @@ Project title: a usEr-driven energy Management systEm foR enerGy Efficiency iN f
 This is the open-source repository containing experiments for the EMERGENT project.
 
 ## Demand forecasting component
+- Emergent demand forecasting experiments.ipynb - Jupyter notebok containing experiments for the generalized demand forecasting component
+- kwh_hourly_dataset_stacked.csv - A dataset containing the hourly energy consumption from 370 buildings in CSV format (Original source: https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014, processed version: https://drive.google.com/file/d/1Vb1ojP1GjYlcmpp7Acq6PRu9Od71xTs8/view?usp=sharing)
 
 
 ## Energy efficiency recommendations component
-
-
-- nyiso_hourly_prices.csv - CSV containing all the historical price data that we need for the environment
-- SmartHomeGymEnv_v2_deployment.py - This is the gym environment python file required to train the Reinforcement Learning algorithms
-- train_agent_on_environment.ipynb - This is the notebook that trains the agent in several different environments
-- test_agent_deployment.ipynb - This is the notebook that uses already trained agents and tests their performance on a given day
-- env_5_pr_5_df_experiments_marwil - This folder contains checkpoints for all the available environment combinations for the MARWIL algorithm
+- nyiso_hourly_prices.csv - CSV containing all the historical price data needed for the environment from NYISO (https://www.nyiso.com/energy-market-operational-data)
+- SmartHomeGymEnv_v2_deployment.py - The gym environment python file required to train the Reinforcement Learning algorithms
+- train_agent_on_environment.ipynb - The notebook that trains the agent in several environments
+- test_agent_deployment.ipynb - The notebook that uses already trained agents and tests their performance on a given day
+- env_5_pr_5_df_experiments_marwil - A folder that contains checkpoints for all the available environment combinations for the MARWIL algorithm
 
 
 ## License
