@@ -1,0 +1,13 @@
+version: '2.0'
+services:
+  emergent_energy_data:
+    image: spiroschadoulos/emergent_energy_data:latest
+    restart: always
+    build: .
+    command: python grpc_server.py
+    ports:
+      - "5010:5010"
+    volumes:
+      - .:/emergent_energy_data
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
