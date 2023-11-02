@@ -15,24 +15,28 @@ class csvEngine(pb2_grpc.csvEngineServicer):
 
     def get_next_row(self, request, context):
         global row_number
-        with open(csv_file_path, "r") as file:
-            csv_reader = csv.reader(file)
-            
-            for i, row in enumerate(csv_reader):
-                if i == row_number:
-                    res = {
-                         "id": int(row[0]),
-                         "houseID": row[1],
-                         "Year" : int(row[2]),
-                         "Month" : int(row[3]),
-                         "DayOfYear" : int(row[4]),
-                         "Date" : row[5],
-                         "Weekday" : int(row[6]),
-                         "Hour" : int(row[7]),
-                         "Energy" : float(row[8])
-                    }
-                    row_number=row_number+1
-                    return pb2.dataSetRow(**res)
+        if(row_number == 12974051):
+            context.set_code(grpc.StatusCode.NOT_FOUND)
+            context.set_details("end of file")
+        else:
+            with open(csv_file_path, "r") as file:
+                csv_reader = csv.reader(file)
+                
+                for i, row in enumerate(csv_reader):
+                    if i == row_number:
+                        res = {
+                            "id": int(row[0]),
+                            "houseID": row[1],
+                            "Year" : int(row[2]),
+                            "Month" : int(row[3]),
+                            "DayOfYear" : int(row[4]),
+                            "Date" : row[5],
+                            "Weekday" : int(row[6]),
+                            "Hour" : int(row[7]),
+                            "Energy" : float(row[8])
+                        }
+                        row_number=row_number+1
+                        return pb2.dataSetRow(**res)
             
 
 if __name__ == '__main__':
