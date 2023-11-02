@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package csvEnginePackage;
+
+service csvEngine {
+    rpc get_next_row(voidNoParam) returns (dataSetRow);
+}
+
+message voidNoParam {}
+
+message dataSetRow {
+    int32 id = 1;
+    string houseID = 2;
+    int32 Year = 3;
+    int32 Month = 4;
+    int32 DayOfYear = 5;
+    string Date = 6;
+    int32 Weekday = 7;
+    int32 Hour = 8;
+    float Energy = 9;
+}
